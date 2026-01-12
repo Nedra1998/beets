@@ -249,7 +249,7 @@ def _preferred_release_event(
             try:
                 if country in event["area"]["iso-3166-1-codes"]:
                     return country, event["date"]
-            except KeyError:
+            except (KeyError, TypeError):
                 pass
 
     return release.get("country"), release.get("date")
